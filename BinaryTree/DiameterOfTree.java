@@ -1,6 +1,5 @@
 package BinaryTree;
 
-// import java.util.*;
 
 public class DiameterOfTree {
     static class Node {
