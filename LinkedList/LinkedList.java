@@ -83,6 +83,40 @@ public class LinkedList {
         size--;
         return val;
     }
+
+    public int itrSearch(int key){
+        Node temp=head;
+        int i=0;
+        while(temp!=null){
+            if(temp.data==key){
+                return i;
+
+            }
+            temp=temp.next;
+            i++;
+
+        }
+        return-1;
+    }
+
+    public int helper(Node head,int key){
+        if(head==null){
+            return -1;
+        }
+        if(head.data==key){
+            return 0;
+        }
+        int idx=helper(head.next,key);
+        if(idx==key){
+            return -1;
+        }
+        return idx+1;
+        
+
+    }
+    public int recSearch(int key){
+        return helper(head, key);
+    }
     public void print(){
         if(head==null){
             System.out.println("LL is Empty");
@@ -129,6 +163,9 @@ public class LinkedList {
         ll.print();
         
         System.out.println(ll.size);
+
+        System.out.println(ll.recSearch(2));
+        System.out.println(ll.itrSearch(10));
         
 
 
